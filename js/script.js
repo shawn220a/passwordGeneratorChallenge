@@ -96,8 +96,17 @@ const specialChar = [
 
 generate.addEventListener('click', generatePassword);
 
+function userInput() {
+  let lower = confirm('Do you want lower case characters in your password');
+  let upper = confirm('Do you want upper case characters in your password');
+  let number = confirm('Do you want number characters in your password');
+  let special = confirm('Do you want special case characters in your password');
+}
+
 function generatePassword() {
   let passLength = prompt('How long do you want the password');
+
+  let password = userInput();
 
   passwordText = 'Security is great';
 
