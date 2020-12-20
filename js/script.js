@@ -129,8 +129,15 @@ function userInput() {
 }
 
 function randomizePassword(passLength, password) {
-  console.log(passLength);
-  console.log(password);
+  let passwordChars = [];
+
+  for (let count = 0; count < passLength; count++) {
+    let passwordChoiceIndex = Math.floor(Math.random() * password.length);
+    let passwordChar = password[passwordChoiceIndex];
+    passwordChars.push(passwordChar);
+  }
+
+  console.log(passwordChars);
 }
 
 function generatePassword() {
