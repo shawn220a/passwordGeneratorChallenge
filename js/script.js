@@ -1,4 +1,5 @@
 const generate = document.querySelector('#generatePassword');
+const finalPassword = document.querySelector('#generatedPassword');
 
 const lowerCaseChar = [
   'a',
@@ -97,4 +98,12 @@ generate.addEventListener('click', generatePassword);
 
 function generatePassword() {
   let passLength = prompt('How long do you want the password');
+
+  passwordText = 'Security is great';
+
+  writePassword(passwordText);
+}
+
+function writePassword(passwordText) {
+  finalPassword.value = passwordText;
 }
