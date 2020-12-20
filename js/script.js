@@ -128,14 +128,16 @@ function userInput() {
   return password;
 }
 
+function randomizePassword(passLength, password) {
+  console.log(passLength);
+  console.log(password);
+}
+
 function generatePassword() {
   let passLength = prompt('How long do you want the password');
 
   let password = userInput();
-
-  console.log(password);
-
-  passwordText = 'Security is great';
+  passwordText = randomizePassword(passLength, password);
 
   writePassword(passwordText);
 }
