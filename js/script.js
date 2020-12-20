@@ -97,16 +97,43 @@ const specialChar = [
 generate.addEventListener('click', generatePassword);
 
 function userInput() {
+  let password = [];
+
   let lower = confirm('Do you want lower case characters in your password');
   let upper = confirm('Do you want upper case characters in your password');
   let number = confirm('Do you want number characters in your password');
   let special = confirm('Do you want special case characters in your password');
+
+  if (lower === true) {
+    for (x of lowerCaseChar) {
+      password.push(x);
+    }
+  }
+  if (upper === true) {
+    for (x of upperCaseChar) {
+      password.push(x);
+    }
+  }
+  if (number === true) {
+    for (x of numberChar) {
+      password.push(x);
+    }
+  }
+  if (special === true) {
+    for (x of specialChar) {
+      password.push(x);
+    }
+  }
+
+  return password;
 }
 
 function generatePassword() {
   let passLength = prompt('How long do you want the password');
 
   let password = userInput();
+
+  console.log(password);
 
   passwordText = 'Security is great';
 
