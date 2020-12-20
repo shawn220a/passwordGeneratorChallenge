@@ -1,6 +1,8 @@
 const generate = document.querySelector('#generatePassword');
 const finalPassword = document.querySelector('#generatedPassword');
 
+generate.addEventListener('click', generatePassword);
+
 const lowerCaseChar = [
   'a',
   'b',
@@ -93,8 +95,6 @@ const specialChar = [
   '~',
   ' ',
 ];
-
-generate.addEventListener('click', generatePassword);
 
 function userInput() {
   let password = [];
