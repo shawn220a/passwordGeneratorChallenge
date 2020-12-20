@@ -150,10 +150,20 @@ function randomizePassword(passLength, password) {
 }
 
 function generatePassword() {
+  let passwordText = '';
+
   let passLength = prompt('How long do you want the password');
 
-  let password = userInput();
-  passwordText = randomizePassword(passLength, password);
+  if (passLength < 8) {
+    alert('Password length must be at least 8 characters');
+  }
+  if (passLength > 128) {
+    alert('Password length must be under 128 characters');
+  }
+  if (passLength >= 8 && passLength <= 128) {
+    let password = userInput();
+    passwordText = randomizePassword(passLength, password);
+  }
 
   writePassword(passwordText);
 }
