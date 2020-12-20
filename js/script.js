@@ -1,7 +1,9 @@
 const generate = document.querySelector('#generatePassword');
 const finalPassword = document.querySelector('#generatedPassword');
+const clearPassword = document.querySelector('#clearPassword');
 
 generate.addEventListener('click', generatePassword);
+clearPassword.addEventListener('click', clearTextArea);
 
 const lowerCaseChar = [
   'a',
@@ -156,4 +158,9 @@ function generatePassword() {
 
 function writePassword(passwordText) {
   finalPassword.value = passwordText;
+}
+
+function clearTextArea() {
+  finalPassword.value = '';
+  clearPassword = finalPassword.value;
 }
