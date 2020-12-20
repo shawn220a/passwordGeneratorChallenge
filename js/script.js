@@ -1,9 +1,11 @@
 const generate = document.querySelector('#generatePassword');
 const finalPassword = document.querySelector('#generatedPassword');
 const clearPassword = document.querySelector('#clearPassword');
+const copyPassword = document.querySelector('#copyPassword');
 
 generate.addEventListener('click', generatePassword);
 clearPassword.addEventListener('click', clearTextArea);
+copyPassword.addEventListener('click', copyTextArea);
 
 const lowerCaseChar = [
   'a',
@@ -163,4 +165,12 @@ function writePassword(passwordText) {
 function clearTextArea() {
   finalPassword.value = '';
   clearPassword = finalPassword.value;
+}
+
+function copyTextArea() {
+  finalPassword.select();
+
+  document.execCommand('copy');
+
+  alert(`Copied the text: ${finalPassword.value}`);
 }
