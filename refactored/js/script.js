@@ -106,26 +106,13 @@ const specialChar = [
 const userInput = () => {
   let password = [];
 
-  if (lower.checked === true) {
-    for (x of lowerCaseChar) {
-      password.push(x);
-    }
-  }
-  if (upper.checked === true) {
-    for (x of upperCaseChar) {
-      password.push(x);
-    }
-  }
-  if (number.checked === true) {
-    for (x of numberChar) {
-      password.push(x);
-    }
-  }
-  if (special.checked === true) {
-    for (x of specialChar) {
-      password.push(x);
-    }
-  }
+  if (lower.checked === true) for (x of lowerCaseChar) password.push(x);
+
+  if (upper.checked === true) for (x of upperCaseChar) password.push(x);
+
+  if (number.checked === true) for (x of numberChar) password.push(x);
+
+  if (special.checked === true) for (x of specialChar) password.push(x);
 
   return password;
 };
@@ -140,9 +127,7 @@ const randomizePassword = (passLength, password) => {
     passwordChars.push(passwordChar);
   }
 
-  for (x of passwordChars) {
-    passwordText += x;
-  }
+  for (x of passwordChars) passwordText += x;
 
   return passwordText;
 };
@@ -150,12 +135,9 @@ const randomizePassword = (passLength, password) => {
 const generatePassword = () => {
   let passwordText = '';
 
-  if (passLength.value < 8) {
-    alert('Password length must be at least 8 characters');
-  }
-  if (passLength.value > 128) {
-    alert('Password length must be under 128 characters');
-  }
+  if (passLength.value < 8) alert('Password length must be at least 8 characters');
+  if (passLength.value > 128) alert('Password length must be under 128 characters');
+
   if (passLength.value >= 8 && passLength.value <= 128) {
     let password = userInput();
     passwordText = randomizePassword(passLength.value, password);
