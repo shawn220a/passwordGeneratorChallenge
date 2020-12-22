@@ -1,7 +1,14 @@
 const generate = document.querySelector('#generatePassword');
 const finalPassword = document.querySelector('#generatedPassword');
-const clearPassword = document.querySelector('#clearPassword');
+let clearPassword = document.querySelector('#clearPassword');
 const copyPassword = document.querySelector('#copyPassword');
+
+const passLength = document.querySelector('#passwordLength');
+// Check box elements
+let lower = document.querySelector('#lower');
+let upper = document.querySelector('#upper');
+let number = document.querySelector('#number');
+let special = document.querySelector('#special');
 
 const lowerCaseChar = [
   'a',
@@ -99,27 +106,22 @@ const specialChar = [
 const userInput = () => {
   let password = [];
 
-  let lower = confirm('Do you want lower case characters in your password');
-  let upper = confirm('Do you want upper case characters in your password');
-  let number = confirm('Do you want number characters in your password');
-  let special = confirm('Do you want special case characters in your password');
-
-  if (lower === true) {
+  if (lower.checked === true) {
     for (x of lowerCaseChar) {
       password.push(x);
     }
   }
-  if (upper === true) {
+  if (upper.checked === true) {
     for (x of upperCaseChar) {
       password.push(x);
     }
   }
-  if (number === true) {
+  if (number.checked === true) {
     for (x of numberChar) {
       password.push(x);
     }
   }
-  if (special === true) {
+  if (special.checked === true) {
     for (x of specialChar) {
       password.push(x);
     }
@@ -148,17 +150,15 @@ const randomizePassword = (passLength, password) => {
 const generatePassword = () => {
   let passwordText = '';
 
-  let passLength = prompt('How long do you want the password');
-
-  if (passLength < 8) {
+  if (passLength.value < 8) {
     alert('Password length must be at least 8 characters');
   }
-  if (passLength > 128) {
+  if (passLength.value > 128) {
     alert('Password length must be under 128 characters');
   }
-  if (passLength >= 8 && passLength <= 128) {
+  if (passLength.value >= 8 && passLength.value <= 128) {
     let password = userInput();
-    passwordText = randomizePassword(passLength, password);
+    passwordText = randomizePassword(passLength.value, password);
   }
 
   writePassword(passwordText);
