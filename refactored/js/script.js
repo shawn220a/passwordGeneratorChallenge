@@ -3,10 +3,6 @@ const finalPassword = document.querySelector('#generatedPassword');
 const clearPassword = document.querySelector('#clearPassword');
 const copyPassword = document.querySelector('#copyPassword');
 
-generate.addEventListener('click', generatePassword);
-clearPassword.addEventListener('click', clearTextArea);
-copyPassword.addEventListener('click', copyTextArea);
-
 const lowerCaseChar = [
   'a',
   'b',
@@ -100,7 +96,7 @@ const specialChar = [
   ' ',
 ];
 
-function userInput() {
+const userInput = () => {
   let password = [];
 
   let lower = confirm('Do you want lower case characters in your password');
@@ -130,9 +126,9 @@ function userInput() {
   }
 
   return password;
-}
+};
 
-function randomizePassword(passLength, password) {
+const randomizePassword = (passLength, password) => {
   let passwordChars = [];
   let passwordText = '';
 
@@ -147,9 +143,9 @@ function randomizePassword(passLength, password) {
   }
 
   return passwordText;
-}
+};
 
-function generatePassword() {
+const generatePassword = () => {
   let passwordText = '';
 
   let passLength = prompt('How long do you want the password');
@@ -166,21 +162,23 @@ function generatePassword() {
   }
 
   writePassword(passwordText);
-}
+};
 
-function writePassword(passwordText) {
-  finalPassword.value = passwordText;
-}
+const writePassword = (passwordText) => (finalPassword.value = passwordText);
 
-function clearTextArea() {
+const clearTextArea = () => {
   finalPassword.value = '';
   clearPassword = finalPassword.value;
-}
+};
 
-function copyTextArea() {
+const copyTextArea = () => {
   finalPassword.select();
 
   document.execCommand('copy');
 
   alert(`Copied the text: ${finalPassword.value}`);
-}
+};
+
+generate.addEventListener('click', generatePassword);
+clearPassword.addEventListener('click', clearTextArea);
+copyPassword.addEventListener('click', copyTextArea);
