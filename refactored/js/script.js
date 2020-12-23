@@ -1,17 +1,14 @@
-const generate = document.querySelector('#generatePassword');
-const finalPassword = document.querySelector('#generatedPassword');
+let generate = document.querySelector('#generatePassword');
+let finalPassword = document.querySelector('#generatedPassword');
 let clearPassword = document.querySelector('#clearPassword');
-const copyPassword = document.querySelector('#copyPassword');
-
-const passLength = document.querySelector('#passwordLength');
-// Check box elements
+let copyPassword = document.querySelector('#copyPassword');
+let passLength = document.querySelector('#passwordLength');
 let lower = document.querySelector('#lower');
 let upper = document.querySelector('#upper');
 let number = document.querySelector('#number');
 let special = document.querySelector('#special');
 
 let userInputSelection = [lower, upper, number, special];
-
 const lowerChar = [
   'a',
   'b',
@@ -104,16 +101,15 @@ const specialChar = [
   '~',
   ' ',
 ];
+let password = [];
 
 const userInput = () => {
-  let password = [];
-
-  for (x of userInputSelection) if (x.checked === true) for (y of eval(x.id + 'Char')) password.push(y);
-
-  return password;
+  for (x of userInputSelection)
+    if (x.checked === true)
+      for (y of eval(x.id + 'Char')) password.push(y);
 };
 
-const randomizePassword = (passLength, password) => {
+const randomizePassword = (passLength) => {
   let passwordChars = [];
   let passwordText = '';
 
@@ -135,19 +131,17 @@ const generatePassword = () => {
   if (passLength.value > 128) alert('Password length must be under 128 characters');
 
   if (passLength.value >= 8 && passLength.value <= 128) {
-    let password = userInput();
-    passwordText = randomizePassword(passLength.value, password);
+    password = [];
+    userInput();
+    passwordText = randomizePassword(passLength.value);
   }
 
   writePassword(passwordText);
 };
 
-const writePassword = (passwordText) => (finalPassword.value = passwordText);
+const writePassword = (passwordText) => finalPassword.value = passwordText;
 
-const clearTextArea = () => {
-  finalPassword.value = '';
-  clearPassword = finalPassword.value;
-};
+const clearTextArea = () => finalPassword.value = '';
 
 const copyTextArea = () => {
   finalPassword.select();
