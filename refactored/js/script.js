@@ -8,7 +8,7 @@ let upper = document.querySelector('#upper');
 let number = document.querySelector('#number');
 let special = document.querySelector('#special');
 
-let userInputSelection = [lower, upper, number, special];
+const userInputSelection = [lower, upper, number, special];
 const lowerChar = [
   'a',
   'b',
