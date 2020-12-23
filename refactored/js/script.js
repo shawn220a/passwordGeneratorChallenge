@@ -10,7 +10,9 @@ let upper = document.querySelector('#upper');
 let number = document.querySelector('#number');
 let special = document.querySelector('#special');
 
-const lowerCaseChar = [
+let userInputSelection = [lower, upper, number, special];
+
+const lowerChar = [
   'a',
   'b',
   'c',
@@ -38,7 +40,7 @@ const lowerCaseChar = [
   'y',
   'z',
 ];
-const upperCaseChar = [
+const upperChar = [
   'A',
   'B',
   'C',
@@ -106,13 +108,7 @@ const specialChar = [
 const userInput = () => {
   let password = [];
 
-  if (lower.checked === true) for (x of lowerCaseChar) password.push(x);
-
-  if (upper.checked === true) for (x of upperCaseChar) password.push(x);
-
-  if (number.checked === true) for (x of numberChar) password.push(x);
-
-  if (special.checked === true) for (x of specialChar) password.push(x);
+  for (x of userInputSelection) if (x.checked === true) for (y of eval(x.id + 'Char')) password.push(y);
 
   return password;
 };
