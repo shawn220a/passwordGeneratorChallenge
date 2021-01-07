@@ -1,6 +1,6 @@
 # passwordGeneratorChallenge
 
-TODO:
-- Make textarea
-- Make generate password button
-- Make function to generate password
+# Link to timelapse video
+[Youtube Video](https://youtu.be/Yt-ERSWJF-g)
+
+Total time to completion: 1 hr 50 mins
